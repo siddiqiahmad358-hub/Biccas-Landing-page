@@ -6,26 +6,174 @@ body {
     overflow-x: hidden;
 }
 
+/* ========== ANIMATIONS ========== */
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navbar Animation */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+/* Nav Links Animation */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #3bb77e;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #3bb77e !important;
+}
+
 .navshadow {
     position: absolute;
     top: 0px;
     margin-left: 0px;
-    z-index: 1;
+    z-index: 1100;
 }
 
 /* Navbar */
+.navbar {
+    position: relative;
+    z-index: 1000;
+}
+
 .navbar-brand {
     color: #3bb77e !important;
     font-weight: 600;
     font-size: 32px;
     line-height: 30px;
     position: relative;
+}
+
+/* Button Animations */
+.btn-success-custom,
+.btnradius {
+    background-color: #3bb77e;
+    border: none;
+    transition: all 0.3s ease;
 
 }
 
-.btn-success-custom {
-    background-color: #3bb77e;
-    border: none;
+.btn-success-custom:hover,
+.btnradius:hover {
+    background-color: #2fa46c;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(59, 183, 126, 0.3);
+}
+
+.btn-success-custom:active,
+.btnradius:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(59, 183, 126, 0.2);
+}
+
+/* Button Animation Class */
+.btn-animate {
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 .loup {
@@ -33,7 +181,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
-
 }
 
 .login {
@@ -41,7 +188,7 @@ body {
 }
 
 .btn-success-custom:hover {
-    background-color: #2fa46c;
+    background-color: #021a0e;
 }
 
 /* Hero Section */
@@ -74,7 +221,46 @@ body {
     z-index: 2;
     max-width: 100%;
     height: auto;
+    transition: transform 0.5s ease;
+    animation: float 4s ease-in-out infinite;
 }
+
+.mainimg:hover {
+    transform: scale(1.03) rotate(1deg);
+}
+
+/* All Images Hover Animation */
+img {
+    transition: all 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Logo Images Specific */
+.logos-section img {
+    transition: all 0.3s ease;
+}
+
+.logos-section img:hover {
+    transform: scale(1.1);
+    opacity: 1 !important;
+}
+
+/* Background Shadow Images */
+#imgbackshadow1,
+#imgbackshadow2 {
+    animation: float 6s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+}
+
+#imgbackshadow1:hover,
+#imgbackshadow2:hover {
+    opacity: 0.8;
+}
+
+/* Nav Shadow Animation */
 
 #imgbackshadow1 {
     position: absolute;
@@ -210,12 +396,45 @@ body {
 
 .feature-card {
     padding: 0px;
-    transition: 0.3s ease;
+    transition: all 0.4s ease;
     background: #ffffff;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Pricing Card Animation */
+.pricing-card {
+    transition: all 0.4s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+}
+
+.featured-plan:hover {
+    transform: scale(1.08) !important;
+}
+
+/* Icon Feature Animation */
+.iconfeature {
+    transition: all 0.3s ease;
+}
+
+.iconfeature:hover {
+    transform: rotate(10deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Feature Box Animation */
+.feature-box {
+    transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateX(10px);
 }
 
 .card-section {
@@ -304,6 +523,100 @@ body {
 .form-card {
     background-color: #1c2a3a;
     border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Input Animation */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(59, 183, 126, 0.3);
+    border-color: #3bb77e;
+}
+
+/* Demo Button Animation */
+.demo-btn {
+    transition: all 0.3s ease;
+}
+
+.demo-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(59, 183, 126, 0.4);
+}
+
+/* Newsletter Box Animation */
+.newsletter-box {
+    transition: all 0.3s ease;
+}
+
+.newsletter-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.newsletter-box input {
+    transition: all 0.3s ease;
+}
+
+.newsletter-box input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.newsletter-box button {
+    transition: all 0.3s ease;
+}
+
+.newsletter-box button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(59, 183, 126, 0.4);
+}
+
+/* Login Link Animation */
+.login {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.login:hover {
+    color: #3bb77e !important;
+    transform: translateX(5px);
+}
+
+/* Dark Section Links */
+.text-white span {
+    transition: all 0.3s ease;
+}
+
+.text-white span:hover {
+    color: #3bb77e !important;
+    text-decoration: underline;
+}
+
+/* Avatar Images Animation */
+.rounded-circle {
+    transition: all 0.3s ease;
+}
+
+.rounded-circle:hover {
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Stars Rating Animation */
+.stars {
+    transition: all 0.3s ease;
+}
+
+.stars:hover {
+    transform: scale(1.1);
 }
 
 .demo-btn {
@@ -355,6 +668,79 @@ body {
 .sunnn {
     margin-top: 75px;
 }
+
+/* Pricing Section Buttons Animation */
+.pricing-section .btn {
+    transition: all 0.3s ease;
+}
+
+.pricing-section .btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Logo Section Animation */
+.logos-section {
+    transition: all 0.3s ease;
+}
+
+/* Support Section Animation */
+.support-section {
+    transition: all 0.3s ease;
+}
+
+/* Features Section Animation */
+.features-section {
+    transition: all 0.3s ease;
+}
+
+/* Dark Section Animation */
+.dark-section {
+    transition: all 0.3s ease;
+}
+
+/* Hero Title Animation on Load */
+.hero-title {
+    animation: fadeInUp 1s ease;
+}
+
+/* Hero Text Animation */
+.hero-text {
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+}
+
+/* Hero Buttons Animation */
+.hero-section .d-flex {
+    animation: fadeInUp 1s ease 0.4s forwards;
+    opacity: 0;
+}
+
+/* Loading Animation Class */
+.load-animation {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Stagger Delays */
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+.delay-5 {
+    animation-delay: 0.5s;
+}
+
 /* ========== MOBILE FIRST RESPONSIVE CSS ========== */
 
 /* Small phones (less than 576px) - Mobile Styles */
@@ -363,109 +749,172 @@ body {
         padding-left: 15px;
         padding-right: 15px;
     }
-    
+
     /* Navbar */
     .navbar-brand {
         font-size: 24px;
     }
-    
+
     .navbar-toggler {
         padding: 8px 12px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        transition: all 0.3s ease;
     }
-    
+
+    .navbar-toggler:hover {
+        background-color: #3bb77e;
+        border-color: #3bb77e;
+    }
+
+    .navbar-toggler:hover .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* Mobile Navbar Collapse Animation */
+    .navbar-collapse {
+        transition: all 0.3s ease;
+    }
+
+    .navbar-collapse.collapsing {
+        height: 0;
+        overflow: hidden;
+    }
+
+    .navbar-collapse.show {
+        animation: fadeInUp 0.3s ease;
+    }
+
     .loup {
         margin-top: 15px;
         gap: 10px;
     }
-    
+
     .login {
         font-size: 14px;
     }
-    
+
+    /* Mobile Navbar Collapse */
+    .navbar-collapse {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+    }
+
+    .navbar-nav {
+        margin-bottom: 15px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .loup {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .loup .btn {
+        width: 100%;
+        text-align: center;
+    }
+
     /* Hero Section */
     .hero-section {
         padding: 30px 0 40px;
     }
-    
+
     .hero-title {
         font-size: 28px;
         text-align: center;
         line-height: 1.3;
     }
-    
+
     .hero-text {
         font-size: 14px;
         text-align: center;
         line-height: 1.6;
         margin: 15px 0 20px;
     }
-    
+
     .hero-section .d-flex {
         justify-content: center;
         flex-wrap: wrap;
         gap: 15px !important;
     }
-    
+
     .btnradius {
         padding: 10px 20px;
         font-size: 14px;
     }
-    
+
     .mainimg {
         margin-top: 20px;
         width: 100%;
     }
-    
+
     /* Logos Section */
     .logos-section {
         padding: 30px 15px;
     }
-    
+
     .h2-logo {
         font-size: 16px;
         padding: 0 10px 15px;
     }
-    
+
     .logos-section img {
         max-height: 18px;
         margin: 8px 10px;
     }
-    
+
     /* Support Section */
     .support-section {
         padding: 40px 0;
     }
-    
+
     .leftcontent-h2 {
         font-size: 22px;
         text-align: center;
         margin-bottom: 15px;
     }
-    
+
     .leftcontent-p {
         font-size: 13px;
         text-align: center;
         margin-bottom: 20px;
     }
-    
+
     .d-flex.gap-5 {
         gap: 20px !important;
         justify-content: center;
         flex-wrap: wrap;
     }
-    
+
     .rating-p {
         font-size: 14px;
     }
-    
+
     .rating-small {
         font-size: 12px;
     }
-    
+
     .stars {
         font-size: 16px;
     }
-    
+
     /* Feature Box */
     .feature-box {
         flex-direction: column;
@@ -473,170 +922,175 @@ body {
         text-align: center;
         margin-bottom: 20px;
     }
-    
+
     .feature-box h6 {
         font-size: 18px;
         margin-bottom: 8px;
     }
-    
+
     .feature-box p {
         font-size: 13px;
     }
-    
+
     .iconfeature {
         width: 45px;
         height: 45px;
         padding: 10px;
         margin-bottom: 10px;
     }
-    
+
     .iconfeature img {
         width: 100%;
         height: auto;
     }
-    
+
     /* Features Section */
     .features-section {
         padding: 40px 0;
     }
-    
+
     .features-section .row.mb-4,
     .features-section .row.mb-5 {
         text-align: center;
     }
-    
+
     .features-section .col-lg-4,
     .features-section .col-lg-5 {
         margin-bottom: 15px;
     }
-    
+
     .features-section .col-lg-3 {
         text-align: center !important;
         margin-top: 15px;
     }
-    
+
     .btn-success-custom {
         width: 100%;
         margin: 0;
         padding: 12px 24px;
         font-size: 15px;
     }
-    
+
     .card-section {
         margin-top: 30px;
     }
-    
+
     .feature-card {
         margin-bottom: 15px;
     }
-    
+
     .feature-card h6 {
         font-size: 18px;
         margin: 15px 0 10px;
     }
-    
+
     .feature-card p {
         font-size: 13px;
     }
-    
+
     /* Pricing Section */
     .pricing-section {
         padding: 40px 0;
         margin-bottom: 30px !important;
     }
-    
+
     .pricing-section h2 {
         font-size: 22px;
         margin-bottom: 10px;
     }
-    
+
     .sub-p {
         font-size: 13px;
         margin-bottom: 20px;
         padding: 0 10px;
     }
-    
+
     .d-inline-flex {
         width: 100%;
         justify-content: center;
     }
-    
+
     .d-inline-flex .btn {
         flex: 1;
         padding: 10px;
         font-size: 13px;
     }
-    
+
     .pricing-card {
         margin: 10px 0;
     }
-    
+
     .featured-plan {
         transform: scale(1);
     }
-    
+
     /* Dark Section */
     .dark-section {
         padding: 40px 0 30px;
     }
-    
+
     .dark-section .fw-bold.fs-1 {
         font-size: 24px !important;
         text-align: center;
         margin-bottom: 20px;
     }
-    
+
     .dark-section .text-light-muted {
         text-align: center;
         font-size: 14px;
     }
-    
+
     .form-card {
         padding: 20px 15px !important;
         margin-top: 25px;
     }
-    
+
     .form-card h5 {
         font-size: 18px;
     }
-    
+
     .demo-btn {
         padding: 12px;
         font-size: 14px;
     }
-    
+
     .newsletter-box {
-        flex-direction: row;
-        margin: 15px 0;
+        max-width: 100%;
     }
-    
+
     .newsletter-box input {
         padding: 10px 12px;
         font-size: 13px;
     }
-    
+
     .newsletter-box button {
         padding: 10px 12px;
         font-size: 14px;
     }
-    
+
     .sunnn {
         margin-top: 25px;
         font-size: 11px;
+        text-align: center;
     }
-    
+
     /* Footer */
     .col-lg-4.mb-5 {
         margin-bottom: 30px !important;
     }
-    
+
     .col-lg-8 .row {
         margin-top: 20px;
     }
-    
+
     .col-md-4.mb-4 {
         margin-bottom: 20px !important;
         text-align: center;
+    }
+
+    .last-line {
+        margin: 30%;
+
     }
 }
 
@@ -646,79 +1100,84 @@ body {
         padding-left: 20px;
         padding-right: 20px;
     }
-    
+
     .hero-section {
         padding: 40px 0 50px;
     }
-    
+
     .hero-title {
         font-size: 36px;
         text-align: center;
     }
-    
+
     .hero-text {
         font-size: 15px;
         text-align: center;
     }
-    
+
     .hero-section .d-flex {
         justify-content: center;
     }
-    
+
     .logos-section {
         padding: 40px 20px;
     }
-    
+
     .h2-logo {
         font-size: 20px;
     }
-    
+
     .logos-section img {
         max-height: 22px;
         margin: 10px 15px;
     }
-    
+
     .support-section {
         padding: 50px 0;
     }
-    
+
     .leftcontent-h2 {
         font-size: 26px;
     }
-    
+
     .feature-box {
         margin-bottom: 20px;
     }
-    
+
     .feature-box h6 {
         font-size: 20px;
     }
-    
+
     .features-section {
         padding: 50px 0;
     }
-    
+
     .pricing-section {
         padding: 50px 0;
     }
-    
+
     .pricing-section h2 {
         font-size: 26px;
     }
-    
+
     .dark-section {
         padding: 50px 0 40px;
     }
-    
+
     .dark-section .fw-bold.fs-1 {
         font-size: 28px;
     }
-    
+
     .form-card {
         margin-top: 30px;
     }
-    
+
     .newsletter-box {
         max-width: 100%;
+    }
+
+    .last-line {
+        margin: 20%;
+
     }
 }
